@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Inicializando uma lista
+var listaDeAlunos = [];
+// Inicializando um contador de alunos
+var contadeiro = 0;
+
+// Laço de repetição infinito
+while(true) {
+    // Inicializando o objeto que guardará os dados do aluno
+    listaDeAlunos[contadeiro] = new Array();
+    // Ler os dados dos alunos
+    listaDeAlunos[contadeiro]['nome'] = prompt("Insira o nome do " + (contadeiro + 1) + "º aluno: ");
+    
+    var nota = parseFloat(prompt("Insira a nota do primeiro semestre: "));
+    while(nota < 0 || nota > 10)
+        nota = prompt("Nota inválida.");
+        listaDeAlunos[contadeiro]['n1'] = nota;
+    var nota = parseFloat(prompt("Insira a nota do segundo semestre: "));
+    while(nota < 0 || nota > 10)
+        nota = prompt("Nota inválida.");
+        listaDeAlunos[contadeiro]['n2'] = nota;
+    listaDeAlunos[contadeiro]['freq'] = prompt("Insira a frequência: ");
+
+    console.log("Dados informados: ");
+    console.log(listaDeAlunos[contadeiro]);
+
+    // Teste de parada do laço
+    if (!confirm("Deseja informar mais um item?")) {
+        break;
+    }
+    contadeiro++;
+    index++;
+}
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Boletim</h1>
+    </header>
+    <session>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nome</th>
+                    <th>1º Semestre</th>
+                    <th>2º Semestre</th>
+                    <th>Nota final</th>
+                    <th>Frequência</th>
+                </tr>
+            </thead>
+            <tbody id="area-dos-alunos">
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </session>
+</body>
+</html>
+
+<script src="script.js" type="text/javascript"></script>

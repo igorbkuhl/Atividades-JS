@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifra de Cesar</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Cifra de Cesar</h1>
+    <div id="form">
+        <form action="#" id="formulario">
+            <input type="text" id="textoOriginal"/>
+            <input type="number" min="1" id="modificador"/>
+            <input type="text" id="textoCriptografado" disabled/>
+        </form>
+    </div>
+    
+    <div id="botoes">
+        <button id="criptografar" onclick="criptografar()">Encriptar</button>
+        <button id="copiar" onclick="copiarTexto()">Copiar</button>
+    </div>
+    
+</body>
+</html>
+
+<script src="cifra.js"></script>

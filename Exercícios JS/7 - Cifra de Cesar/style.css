@@ -1,0 +1,61 @@
+* {
+    background-color: rgb(178, 165, 238);
+    color: antiquewhite;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#formulario input {
+    margin: 12px;
+}
+
+#botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin: 14px;
+}
+
+#botoes button {
+    margin: 9px;
+    padding: 8px;
+    background-color: rgb(134, 124, 179);
+    border: solid rgb(147, 122, 194) 2px;
+    border-radius: 4px;
+}
+
+#botoes button:hover {
+    cursor: pointer;
+}
+
+body {
+    display: flexbox;
+    flex-direction: column;
+    align-items: center;
+
+    margin-inline: auto;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.centralizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+input {
+    border: 2px rgb(133, 115, 145) solid;
+    border-radius: 4px;
+}

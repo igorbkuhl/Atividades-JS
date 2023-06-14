@@ -1,0 +1,22 @@
+* {
+    background-color: rgb(105, 103, 122);
+}
+
+/* bloco {
+    background-color: #f179d7;
+} */
+
+canvas {
+    border: 1px solid #875daa;
+    background-color: rgb(163, 147, 168);
+    object-position: 50% 50%;
+    position: absolute;
+}
+
+/* #bloco {
+    background-color: #875daa;
+    border: red 16px solid;
+    height: 40px;
+    width: 40px;
+    position:absolute;
+} */
