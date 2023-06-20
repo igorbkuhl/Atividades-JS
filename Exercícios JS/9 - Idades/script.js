@@ -1,5 +1,3 @@
-
-
 // Exibe dados que foram coletados
 var listaDeDatas = []
 var contadeiro = 0;
@@ -11,9 +9,14 @@ while(true) {
     listaDeDatas[contadeiro]['nome'] = prompt("Insira o nome da " + (contadeiro + 1) + "º pessoa:")
 
     // Pergunta a data de nascimento
-    var nascimento = prompt("Insira a data de nascimento: ");
+    var diaDoNascimento = prompt("Insira o dia do nascimento: ");
+    var mesDoNascimento = prompt("Insira o mês do nascimento: ");
+    var anoDoNascimento = prompt("Insira o ano do nascimento: ");
+
+    nascimento = diaDoNascimento + "/" + mesDoNascimento + "/" + anoDoNascimento;
     listaDeDatas[contadeiro]['nascimento'] = nascimento;
     // Subtrai a data atual pela data de nascimento
+    idade = anos - nascimento;
     listaDeDatas[contadeiro]['idade'] = idade;
 
     console.log("Dados informados: ");
@@ -26,13 +29,9 @@ while(true) {
     contadeiro++;
 }
 
-listaDeDatas.forEach(function(data) {
-    console.log(data);
-})
 //////////////////////////////
 
 var tabela = document.getElementById("areaDasDatas")
-console.log(tabela.innerHTML)
 
     // Unidades de tempo
     var milisegundos = new Date() - new Date(nascimento);
@@ -44,11 +43,10 @@ console.log(tabela.innerHTML)
     var meses = dias / 30;
     var anos = meses / 12;
     var idade = dias / 365;
-    console.log(idade.toFixed(1));
+    console.log(Math.trunc(idade));
 
 
 listaDeDatas.forEach(function(data, index) {
-    console.log(data);
 
     // Adicionando uma linha
     var linha = "<tr class='linha'>";
@@ -56,7 +54,7 @@ listaDeDatas.forEach(function(data, index) {
     linha += "<td>" + (index + 1) + "</td>";
     linha += "<td>" + data['nome'] + "</td>";
     linha += "<td>" + nascimento + "</td>";
-    linha += "<td>" + (idade).toFixed(1) + "</td>";
+    linha += "<td>" + Math.trunc(idade) + "</td>";
     // Fechando a linha
     linha += "</tr>";
     // Inserindo os dados no HTML
