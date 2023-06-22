@@ -9,14 +9,14 @@ while(true) {
     listaDeDatas[contadeiro]['nome'] = prompt("Insira o nome da " + (contadeiro + 1) + "º pessoa:")
 
     // Pergunta a data de nascimento
-    var diaDoNascimento = prompt("Insira o dia do nascimento: ");
-    var mesDoNascimento = prompt("Insira o mês do nascimento: ");
-    var anoDoNascimento = prompt("Insira o ano do nascimento: ");
+    var diaDoNascimento = parseInt(prompt("Insira o dia do nascimento: "));
+    var mesDoNascimento = parseInt(prompt("Insira o mês do nascimento: "));
+    var anoDoNascimento = parseInt(prompt("Insira o ano do nascimento: "));
 
     nascimento = diaDoNascimento + "/" + mesDoNascimento + "/" + anoDoNascimento;
     listaDeDatas[contadeiro]['nascimento'] = nascimento;
     // Subtrai a data atual pela data de nascimento
-    idade = anos - nascimento;
+    idade = anos;
     listaDeDatas[contadeiro]['idade'] = idade;
 
     console.log("Dados informados: ");
