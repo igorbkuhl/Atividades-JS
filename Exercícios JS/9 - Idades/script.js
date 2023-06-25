@@ -9,29 +9,12 @@ while(true) {
     listaDeDatas[contadeiro]['nome'] = prompt("Insira o nome da " + (contadeiro + 1) + "º pessoa:")
 
     // Pergunta a data de nascimento
-    var diaDoNascimento = parseInt(prompt("Insira o dia do nascimento: "));
-    var mesDoNascimento = parseInt(prompt("Insira o mês do nascimento: "));
-    var anoDoNascimento = parseInt(prompt("Insira o ano do nascimento: "));
+    var diaDoNascimento = prompt("Insira o dia do nascimento: ");
+    var mesDoNascimento = prompt("Insira o mês do nascimento: ");
+    var anoDoNascimento = prompt("Insira o ano do nascimento: ");
 
-    nascimento = diaDoNascimento + "/" + mesDoNascimento + "/" + anoDoNascimento;
+    var nascimento = diaDoNascimento + "/" + mesDoNascimento + "/" + anoDoNascimento;
     listaDeDatas[contadeiro]['nascimento'] = nascimento;
-    // Subtrai a data atual pela data de nascimento
-    idade = anos;
-    listaDeDatas[contadeiro]['idade'] = idade;
-
-    console.log("Dados informados: ");
-    console.log(listaDeDatas[contadeiro]);
-
-    if (!confirm("Deseja adicionar mais uma pessoa?")) {
-        break;
-    }
-
-    contadeiro++;
-}
-
-//////////////////////////////
-
-var tabela = document.getElementById("areaDasDatas")
 
     // Unidades de tempo
     var milisegundos = new Date() - new Date(nascimento);
@@ -44,19 +27,35 @@ var tabela = document.getElementById("areaDasDatas")
     var anos = meses / 12;
     var idade = dias / 365;
     console.log(Math.trunc(idade));
+    
+    // Subtrai a data atual pela data de nascimento
+    listaDeDatas[contadeiro]['idade'] = idade;
+
+    console.log("Dados informados: ");
+    console.log(listaDeDatas[contadeiro]);
 
 
-listaDeDatas.forEach(function(data, index) {
 
-    // Adicionando uma linha
-    var linha = "<tr class='linha'>";
-    // Inserindo as informações
-    linha += "<td>" + (index + 1) + "</td>";
-    linha += "<td>" + data['nome'] + "</td>";
-    linha += "<td>" + nascimento + "</td>";
-    linha += "<td>" + Math.trunc(idade) + "</td>";
-    // Fechando a linha
-    linha += "</tr>";
-    // Inserindo os dados no HTML
-    tabela.innerHTML += linha;
-});
+    var tabela = document.getElementById("areaDasDatas")
+
+    listaDeDatas.forEach(function(data, index) {
+
+        // Adicionando uma linha
+        var linha = "<tr class='linha'>";
+        // Inserindo as informações
+        linha += "<td>" + (index + 1) + "</td>";
+        linha += "<td>" + data['nome'] + "</td>";
+        linha += "<td>" + nascimento + "</td>";
+        linha += "<td>" + Math.trunc(idade) + "</td>";
+        // Fechando a linha
+        linha += "</tr>";
+        // Inserindo os dados no HTML
+        tabela.innerHTML += linha;
+    });
+
+    if (!confirm("Deseja adicionar mais uma pessoa?")) {
+        break;
+    }
+
+    contadeiro++;
+}
