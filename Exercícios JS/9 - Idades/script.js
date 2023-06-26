@@ -9,11 +9,14 @@ while(true) {
     listaDeDatas[contadeiro]['nome'] = prompt("Insira o nome da " + (contadeiro + 1) + "º pessoa:")
 
     // Pergunta a data de nascimento
-    var diaDoNascimento = prompt("Insira o dia do nascimento: ");
-    var mesDoNascimento = prompt("Insira o mês do nascimento: ");
-    var anoDoNascimento = prompt("Insira o ano do nascimento: ");
+    var nascimentoInput = prompt("Insira a data de nascimento: ");
 
-    var nascimento = diaDoNascimento + "/" + mesDoNascimento + "/" + anoDoNascimento;
+    // Seleciona partes da data informada
+    var diaDeNascimento = nascimentoInput.slice(0, 2);
+    var mesDeNascimento = nascimentoInput.slice(3, 5);
+    var anoDeNascimento = nascimentoInput.slice(6, 10);
+    var nascimento = diaDeNascimento + "/" + mesDeNascimento + "/" + anoDeNascimento;
+    
     listaDeDatas[contadeiro]['nascimento'] = nascimento;
 
     // Unidades de tempo
@@ -26,14 +29,19 @@ while(true) {
     var meses = dias / 30;
     var anos = meses / 12;
     var idade = dias / 365;
-    console.log(Math.trunc(idade));
+    console.log("Idade: " + Math.trunc(idade));
+
     
     // Subtrai a data atual pela data de nascimento
     listaDeDatas[contadeiro]['idade'] = idade;
 
-    console.log("Dados informados: ");
-    console.log(listaDeDatas[contadeiro]);
 
+    if (!confirm("Deseja adicionar mais uma pessoa?")) {
+        break;
+    }
+
+    contadeiro++;
+}
 
 
     var tabela = document.getElementById("areaDasDatas")
@@ -53,9 +61,5 @@ while(true) {
         tabela.innerHTML += linha;
     });
 
-    if (!confirm("Deseja adicionar mais uma pessoa?")) {
-        break;
-    }
-
-    contadeiro++;
-}
+    console.log("Dados informados: ");
+    console.log(listaDeDatas[contadeiro]);
