@@ -53,8 +53,8 @@ while(true) {
         // Inserindo as informações
         linha += "<td>" + (index + 1) + "</td>";
         linha += "<td>" + data['nome'] + "</td>";
-        linha += "<td>" + nascimento + "</td>";
-        linha += "<td>" + Math.trunc(idade) + "</td>";
+        linha += "<td>" + data['nascimento'] + "</td>";
+        linha += "<td>" + Math.trunc(data['idade']) + "</td>";
         // Fechando a linha
         linha += "</tr>";
         // Inserindo os dados no HTML
