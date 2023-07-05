@@ -10,7 +10,8 @@ canvas {
     border: 1px solid #875daa;
     background-color: rgb(163, 147, 168);
     object-position: 50% 50%;
-    position: absolute;
+    display: flex;
+    margin: 15vh auto auto auto;
 }
 
 /* #bloco {
