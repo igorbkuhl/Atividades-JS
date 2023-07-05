@@ -1,5 +1,5 @@
 // Exibe dados que foram coletados
-var listaDeDatas = []
+var listaDeDatas = [];
 var contadeiro = 0;
 
 
