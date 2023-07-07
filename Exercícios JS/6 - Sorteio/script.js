@@ -1,28 +1,34 @@
-// 1. Solicitar os nomes com prompt
-// 2. Solicitar mais um nome após o outro
-// 3. Sortear um dos nomes inseridos e 
-// informar que foi o vencedor do sorteio.
-//////////////////////////////////////////
-
-
+// Cria uma array e um contador
 var participants = [];
 var counter = 0;
 
-while(true) {
-    
+// Declara a função do sorteio
+function raffle(winner) {
+  // Inicia o loop de solicitações
+  while(true) {
 
-  participants[counter] = new Array();
-  participants[counter]['name'] = prompt('Insira o nome do ' + (counter + 1) + 'º participante.');
+    // Cria uma array com o contador
+    participants[counter] = {};
+    participants[counter].name = prompt('Insira o nome do ' + (counter + 1) + 'º participante.');
 
-  function randomName() {
-    const entries = [...participants['name'].values()].map((i) => i.value);
-    const rand = Math.floor(Math.random() * entries.length);
-    const name = entries[rand];
+    // Encerrando o loop de solicitações
+    if(!confirm('Deseja adicionar mais um participante?')) {
+      break;
+    }
 
+    counter++;
   }
 
-  if(!confirm('Deseja adicionar mais um participante?')) {
-  break;
+  // Informa o vencedor do sorteio
+  if (participants.length >= 2) {
+    var randomIndex = Math.floor(Math.random() * participants.length);
+    var sortedValue = participants[randomIndex].name;
+
+    console.log(`O vencedor do sorteio é ${sortedValue}!`);
+    winner = `O vencedor do sorteio é ${sortedValue}!`;
+  } else {
+    alert("Informe no mínimo dois participantes.");
   }
-  counter++;
 }
+
+raffle();
