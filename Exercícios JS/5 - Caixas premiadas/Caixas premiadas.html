@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="mainArea">
-        <div id="boxArea">
-            <div id="redRec" class="redRec rectangle" data-index="0" onclick="raffle()"></div>
-            <div id="greenRec" class="greenRec rectangle" data-index="1"></div>
-            <div id="blueRec" class="blueRec rectangle" data-index="2"></div>
-            <div id="yellowRec" class="yellowRec rectangle" data-index="3"></div>
-            <div id="pinkRec" class="pinkRec rectangle" data-index="4"></div>
+        <div id="boxArea" class="hidden">
+            <div id="red" class="rectangle"></div>
+            <div id="green" class="rectangle"></div>
+            <div id="blue" class="rectangle"></div>
+            <div id="yellow" class="rectangle"></div>
+            <div id="pink" class="rectangle"></div>
         </div>
         <div id="buttonArea">
-            <button onclick="raffle()">Sortear</button>
+            <button id="startButton" class="shown" onclick="start()">Iniciar</button>
+            <button id="raffleButton" class="hidden" onclick="raffle()">Sortear</button>
         </div>
     </div>
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="script.js"></script>

@@ -1,9 +1,9 @@
 * {
-    background-color: rgb(84, 118, 180);
+    background-color: rgb(69, 89, 123);
 }
 
 button {
-    background-color: rgb(90, 129, 202);
+    background-color: rgb(146, 172, 221);
     border: 3px solid rgb(57, 104, 192);
     border-radius: 10px;
     cursor: pointer;
@@ -12,7 +12,7 @@ button {
 }
 
 #boxArea {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
@@ -28,8 +28,25 @@ button {
     margin-top: 5vh;
 }
 
-.show {
-    background-color: violet;
+#red {
+    background-color: rgb(243, 89, 84);
+    border-color: hsl(2, 87%, 40%);
+}
+#green {
+    background-color: rgb(94, 221, 105);
+    border-color: hsl(125, 65%, 40%);
+}
+#blue {
+    background-color: rgb(49, 120, 252);
+    border-color: hsl(219, 97%, 40%);
+}
+#yellow {
+    background-color: rgb(233, 245, 64);
+    border-color: hsl(64, 90%, 40%);
+}
+#pink {
+    background-color: rgb(238, 117, 147);
+    border-color: hsl(345, 78%, 40%);
 }
 
 .rectangle {
@@ -42,23 +59,10 @@ button {
     width: 200px;
 }
 
-.redRec {
-    background-color: rgb(243, 89, 84);
-    border-color: hsl(2, 87%, 40%);
+.shown {
+    display: flex;
+
 }
-.greenRec {
-    background-color: rgb(94, 221, 105);
-    border-color: hsl(125, 65%, 40%);
-}
-.blueRec {
-    background-color: rgb(49, 120, 252);
-    border-color: hsl(219, 97%, 40%);
-}
-.yellowRec {
-    background-color: rgb(233, 245, 64);
-    border-color: hsl(64, 90%, 40%);
-}
-.pinkRec {
-    background-color: rgb(238, 117, 147);
-    border-color: hsl(345, 78%, 40%);
+.hidden {
+    display: none;
 }

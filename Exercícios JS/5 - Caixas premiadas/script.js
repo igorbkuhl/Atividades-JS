@@ -1,26 +1,32 @@
-// Define a área das caixas e cria um seletor de números automáticos
 const boxes = ["red", "green", "blue", "yellow", "pink"];
-var index = 0;
+let index = 0;
 
-// Inicia uma função usando o número aleatório
+const start = () => {
+    // Exibe as caixas
+    document.getElementById("boxArea").classList.remove("hidden");
+    document.getElementById("boxArea").classList.add("shown");
+
+    // Oculta o botão de iniciar
+    document.getElementById("startButton").classList.remove("shown");
+    document.getElementById("startButton").classList.add("hidden");
+
+    // Exibe o botão de sortear
+    document.getElementById("raffleButton").classList.remove("hidden");
+    document.getElementById("raffleButton").classList.add("shown");
+}
+
+const winner = (sortedValue) => {
+    const boxElement = document.querySelector(sortedValue);
+    boxElement.classList.add("winner");
+
+    boxElement.style.backgroundColor = "slateblue";
+  }
+
 const raffle = () => {
-// Re-define o valor aleatório
-    const nextIndex = index + randomValue <= boxes.length;
-// Seleciona os index das caixas  
-    const unchosenBox = document.querySelector(`[data-index="${index}"]`),
-        chosenBox = document.querySelector(`[data-index="${nextIndex}"]`);
-  
-// Define status de selecionado e não selecionado
-    unchosenBox.dataset.status = "unchosen";
-    chosenBox.dataset.status = "chosen";
-          
-    index = nextIndex;
-  
-  
-    const BOXES = [...boxes["boxes[]"].values()].map((i) => i.value);
-    var randomValue = Math.floor(Math.random() * 5);
-    const name = BOXES[nertIndex];
-    name.classList.add("show");
+    let randomIndex = Math.floor(Math.random() * boxes.length);
+    let sortedValue = boxes[randomIndex];
 
-    console.log(nextIndex);
+    winner(sortedValue);
+
+    console.log(`O vencedor é ${sortedValue}`);
 }
