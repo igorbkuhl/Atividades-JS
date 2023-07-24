@@ -49,7 +49,7 @@ button {
     border-color: hsl(345, 78%, 40%);
 }
 
-.rectangle {
+.box {
     border: 3px solid;
     border-radius: 10px;
     cursor: pointer;
