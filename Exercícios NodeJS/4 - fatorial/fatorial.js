@@ -16,27 +16,3 @@ function fatorial() {
         window.alert("Insira um valor positivo.");
     }
 }
-
-
-
-
-
-
-
-
-// var readlineSync = require('readline-sync');
-
-// function fatorial(n) {
-//     var n = document.getElementById("n").value;    
-
-//     if(n == 1) {
-//         return 1;    
-//     }
-//     // console.log("Fatorial de " + n + " = " + n + " * !" + (n - 1));
-//     return n * fatorial(n - 1);
-// }
-
-// document.getElementById("resultado").innerHTML = n;
-
-// var numero = readlineSync.question('Qual o número? ');
-// console.log(fatorial(numero));
