@@ -1,29 +1,35 @@
 const boxes = [
-    red = document.querySelector("#red"),
-    green = document.querySelector("#green"),
-    blue = document.querySelector("#blue"),
-    yellow = document.querySelector("#yellow"),
-    pink = document.querySelector("#pink")
+    document.querySelector("#red"),
+    document.querySelector("#green"),
+    document.querySelector("#blue"),
+    document.querySelector("#yellow"),
+    document.querySelector("#pink")
 ];
 
 const start = () => {
+    document.querySelector("#startButton").addEventListener("click", start);
+
     // Oculta o botão de iniciar
-    document.getElementById("startButton").classList.remove("shown");
-    document.getElementById("startButton").classList.add("hidden");
+    document.querySelector("#startButton").classList.remove("shown");
+    document.querySelector("#startButton").classList.add("hidden");
 
     // Exibe as caixas
-    document.getElementById("boxArea").classList.remove("hidden");
-    document.getElementById("boxArea").classList.add("shown");
+    document.querySelector("#boxArea").classList.remove("hidden");
+    document.querySelector("#boxArea").classList.add("shown");
 
     // Exibe o botão de sortear
-    document.getElementById("raffleButton").classList.remove("hidden");
-    document.getElementById("raffleButton").classList.add("shown");
+    document.querySelector("#shuffleButton").classList.remove("hidden");
+    document.querySelector("#shuffleButton").classList.add("shown");
 }
 
 const shuffle = (randomIndex) => {
-    randomIndex = Math.floor(Math.random() * boxes.length);
-    boxes[randomIndex].style.backgroundColor = `#ba72e4`;
+    document.querySelector("#shuffleButton").addEventListener("click", shuffle);
 
-    // console.log(`O vencedor é ${boxes[randomIndex]}`);
+    randomIndex = Math.floor(Math.random() * boxes.length);
+    boxes[randomIndex].style.backgroundColor = `#ba72e4`;    
+
+    // Oculta o botão de sortear
+    document.querySelector("#shuffleButton").classList.remove("shown");
+    document.querySelector("#shuffleButton").classList.add("hidden");
     
 }
