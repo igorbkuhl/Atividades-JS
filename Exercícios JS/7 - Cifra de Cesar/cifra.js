@@ -1,33 +1,3 @@
-/* modificador = document.getElementById("modificador").value
-
-function caesarCipher(str, num) {
-  num = num % 26;
-  var lowerCaseStr = str.toLowerCase();
-  var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  var newStr = '';
-
-  for(var i = 0; i < lowerCaseStr.length; i++) {
-    var currentLetter = lowerCaseStr[i];
-    if(currentLetter === ' ') {
-      newStr += currentLetter;
-      continue;
-    }
-    var currentIndex = alphabet.indexOf(currentLetter);
-    var newIndex = currentIndex + num;
-    if(newIndex > 25) newIndex = newIndex - 26;
-    if(newIndex < 0) newIndex = newIndex + 26;
-    if(str[i] === str[i].toUpperCase()) {
-      newStr += alphabet[newIndex].toUpperCase();
-    }
-    else newStr += alphabet[newIndex];
-  }
-  return newStr;
-}
-
-console.log(caesarCipher('Rfyr uyq dsl zsr Gk rpwgl em cyr qmkc ZZO afgaicl', 2))
-
- */
-
 let textoOriginal = document.getElementById("textoOriginal")
 let textoCriptografado = document.getElementById("textoCriptografado")
 let btoEncriptar = document.getElementById("criptografar")
@@ -55,11 +25,4 @@ function criptografar() {
   textoCriptografado.value = resultado
 }
 
-function copiarTexto() {
-  textoCriptografado.select()
-  textoCriptografado.Input.setSelectionRange(0.99999)
-  document.execCommand('copy')
-  alert(`Copied to clipboard: ${textoCriptografado.value}`)
-}
-btoCopiar.addEventListener('click', copiarTexto)
 btoEncriptar.addEventListener('click', criptografar)
