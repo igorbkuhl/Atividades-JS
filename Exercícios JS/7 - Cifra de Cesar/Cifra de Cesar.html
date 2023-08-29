@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h1>Cifra de Cesar</h1>
-    <div id="form">
-        <form action="#" id="formulario">
-            <input type="text" id="textoOriginal"/>
-            <input type="number" min="1" id="modificador"/>
-            <input type="text" id="textoCriptografado" disabled/>
-        </form>
-    </div>
-    
-    <div id="botoes">
-        <button id="criptografar" onclick="criptografar()">Encriptar</button>
-    </div>
-    
+    <main>
+        <div class="main">
+            <h1>Cifra de Cesar</h1>
+            <div id="form">
+                <form action="#" id="formulario">
+                    <input type="text" id="textoOriginal"/>
+                    <input type="number" id="modificador"/>
+                    <input type="text" id="textoCriptografado" disabled/>
+                </form>
+            </div>
+            
+            <div id="botoes">
+                <button id="criptografar">Encriptar</button>
+                <button id="copiar">Copiar</button>
+            </div>
+        </div>
+    </main>
 </body>
-</html>
-
 <script src="cifra.js"></script>
+</html>
