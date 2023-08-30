@@ -2,6 +2,12 @@
     color: #f39ba3;
 }
 
+html {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 body {   
     background-color: #513340;
     margin-top: 20vh;
@@ -11,19 +17,13 @@ body {
     padding: auto;
 }
 
-button {
-    background-color: #946064;
-    border: 1px solid;
-    border-radius: 4px;
-    font-size: 18px;
-    padding: 10px;
-}
-
-form {
-    display: grid;
-    justify-content: space-around;
-    margin: 0;
-    width: 600px;
+main {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f5d4d6;
+    padding: 8vh 0px;
 }
 
 h1 {
@@ -34,25 +34,48 @@ h1 {
     text-transform: uppercase;
 }
 
-html {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-input {
-    background-color: #946064;
-    border: solid 1px;
-    border-radius: 2px;
-    padding: 5px 15px;
-    text-align: center;
-    width: 80%;
+form {
+    display: grid;
+    justify-content: space-around;
+    margin: 0;
+    width: 600px;
 }
 
 label {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
     font-style: italic;
+}
+
+input {
+    background-color: #946064;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    text-align: center;
+    width: 80%;
+}
+
+.temp-area {
+    margin-top: 2vh;
+}
+
+#buttonArea {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#botao {
+    background-color: #946064;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+    display: inherit;
+    justify-content: inherit;
+    margin-top: 4vh;
 }
 
 ::placeholder {
