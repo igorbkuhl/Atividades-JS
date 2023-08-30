@@ -8,24 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Conversor de temperaturas</h1>
-    <form name="converter" action="#" method="get">
-        <div class="fahrenheit">
-            <label for="fahrenheit">Fahrenheit</label>
-            <input type="number" name="fahrenheit" id="fahrenheit" placeholder="Valor em Fahrenheit" onchange="ConversorDeTemperaturas(this.id, this.value)"/> 
+    <main>
+        <div id="formArea">
+            <h1>Conversor de temperaturas</h1>
+            <form name="converter" action="#" method="get">
+                <div class="fahrenheit temp-area">
+                    <label for="fahrenheit">Fahrenheit</label>
+                    <input type="number" name="fahrenheit" id="fahrenheit" placeholder="Valor em Fahrenheit" onchange="ConversorDeTemperaturas(this.id, this.value)"/> 
+                </div>
+                <br/>
+                <div class="celsius temp-area">
+                    <label for="celsius">Celsius</label>
+                    <input type="number" name="celsius" id="celsius" placeholder="Valor em Celsius" onchange="ConversorDeTemperaturas(this.id, this.value)"/>
+                </div>
+                <br/>
+                <div class="kelvin temp-area">
+                    <label for="kelvin">Kelvin</label>
+                    <input type="number" name="kelvin" id="kelvin" placeholder="Valor em Kelvin" onchange="ConversorDeTemperaturas(this.id, this.value)"/>
+                </div>
+            </form>
         </div>
-        <br/>
-        <div class="celsius">
-            <label for="celsius">Celsius</label>
-            <input type="number" name="celsius" id="celsius" placeholder="Valor em Celsius" onchange="ConversorDeTemperaturas(this.id, this.value)"/>
+        <div id="buttonArea">
+            <button id="botao" onclick="ConversorDeTemperaturas(source, valNum)">Converter</button>
         </div>
-        <br/>
-        <div class="kelvin">
-            <label for="kelvin">Kelvin</label>
-            <input type="number" name="kelvin" id="kelvin" placeholder="Valor em Kelvin" onchange="ConversorDeTemperaturas(this.id, this.value)"/>
-        </div>
-    </form>
-    <button onclick="ConversorDeTemperaturas(source, valNum)">Converter</button>
+    </main>
 </body>
 </html>
 
