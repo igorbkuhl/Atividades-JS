@@ -8,27 +8,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="votos">
-        <div id="eleitores">
-            <h1>Total de votos</h1>
-            <h2>Regis da Costa</h2>
-            <p id="regisDaCosta"></p>
-            <h2>Paulo Machado</h2>
-            <p id="pauloMachado"></p>
-            <h2>Maria Pinho</h2>
-            <p id="mariaPinho"></p>
-            <h2>Angela Martins</h2>
-            <p id="angelaMartins"></p>
-            <h2>Mateus Silvério</h2>
-            <p id="mateusSilvério"></p> 
+    <main>
+        <div id="mainArea">
+            <div id="votos">
+                <div id="eleitores">
+                    <h1>Total de votos</h1>
+                    <div class="votos">
+                        <h2>Regis da Costa</h2>
+                        <p id="regisDaCosta" class="porcentagem"></p>
+                    </div>
+                    <div class="votos">
+                        <h2>Paulo Machado</h2>
+                        <p id="pauloMachado" class="porcentagem"></p>
+                    </div>
+                    <div class="votos">
+                        <h2>Maria Pinho</h2>
+                        <p id="mariaPinho" class="porcentagem"></p>
+                    </div>
+                    <div class="votos">
+                        <h2>Angela Martins</h2>
+                        <p id="angelaMartins" class="porcentagem"></p>
+                    </div>
+                    <div class="votos">
+                        <h2>Mateus Silvério</h2>
+                        <p id="mateusSilvério" class="porcentagem"></p>
+                    </div>
+                </div>
+                <div id="outrosVotos">
+                    <div class="votos">
+                        <h3>Votos brancos</h3>
+                        <p id="votosBrancos" class="porcentagem"></p>
+                    </div>
+                    <div class="votos">
+                        <h3>Votos nulos</h3>
+                        <p id="votosNulos" class="porcentagem"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="outrosVotos">
-            <h3>Votos brancos</h3>
-            <p id="votosBrancos"></p>
-            <h3>Votos nulos</h3>
-            <p id="votosNulos"></p>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
 
