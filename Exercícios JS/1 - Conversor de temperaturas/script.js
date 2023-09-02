@@ -1,8 +1,8 @@
 function ConversorDeTemperaturas(source, valNum) {
     valNum = parseFloat(valNum);
-    var fahrenheit = document.getElementById("fahrenheit");
-    var celsius = document.getElementById("celsius");
-    var kelvin = document.getElementById("kelvin");
+    let fahrenheit = document.getElementById("fahrenheit");
+    let celsius = document.getElementById("celsius");
+    let kelvin = document.getElementById("kelvin");
 
     if (source == "fahrenheit") {
         celsius.value = ((valNum - 32) / 1.8).toFixed(2);
