@@ -1,15 +1,22 @@
-// program to check leap year
-function checkLeapYear(year) {
+function bissexto(ano) {
+    let num = document.querySelector('input#num');
+    let resultado = document.querySelector('p#resultado');
+    ano = num.value;
 
-    //three conditions to find out the leap year
-    if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
-        console.log(year + ' is a leap year');
+    /* Se ano ano for divisível por 4 e 400 mas não divisível por 100,
+       informa que o ano é bissexto */
+    if (typeof ano === 'string') {
+        alert('Insira um número.')
+    }
+
+    if (num.value == null || num.value == undefined) {
+        resultado.innerHTML = `Para calcular, insira um ano.`;
+    } else if ((ano % 4 == 0) && (ano % 100 != 0) || (ano % 400 == 0)) {
+        resultado.innerHTML = `O ano ${ano} é bissexto!`;
     } else {
-        console.log(year + ' is not a leap year');
+        resultado.innerHTML = `O ano ${ano} não é bissexto.`;
     }
 }
 
-// take input
-const year = prompt('Enter a year:');
-
-checkLeapYear(year);
+// Ativa a função ao clicar no botão de verificar
+document.querySelector('#enviar').addEventListener('click', bissexto);
