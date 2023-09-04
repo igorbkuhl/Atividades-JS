@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio</title>
+    <title>Caixas premiadas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mainArea">
-        <div id="boxArea" class="hidden">
-            <div id="red" class="box"></div>
-            <div id="green" class="box"></div>
-            <div id="blue" class="box"></div>
-            <div id="yellow" class="box"></div>
-            <div id="pink" class="box"></div>
+    <main>
+        <div class="mainArea">
+            <div id="boxArea" class="hidden">
+                <div id="red" class="box"></div>
+                <div id="green" class="box"></div>
+                <div id="blue" class="box"></div>
+                <div id="yellow" class="box"></div>
+                <div id="pink" class="box"></div>
+            </div>
+            <div id="buttonArea">
+                <button id="startButton" class="shown">Iniciar</button>
+                <button id="shuffleButton" class="hidden">Sortear</button>
+                <button id="restartButton" class="hidden">Sortear novamente</button>
+            </div>
         </div>
-        <div id="buttonArea">
-            <button id="startButton" class="shown" onclick="start()">Iniciar</button>
-            <button id="shuffleButton" class="hidden" onclick="shuffle()">Sortear</button>
-        </div>
-    </div>
+    </main>
 </body>
-</html>
 <script src="script.js"></script>
+</html>
