@@ -1,14 +1,5 @@
-* {
-    background-color: rgb(69, 89, 123);
-}
-
-button {
-    background-color: rgb(146, 172, 221);
-    border: 3px solid rgb(57, 104, 192);
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 20px;
+html {
+    background-color: #45597b;
 }
 
 #boxArea {
@@ -18,35 +9,29 @@ button {
     flex-direction: row;
     margin: auto;
     margin-top: 15vh;
+    height: 100%;
     width: 60vw;
-}
-#buttonArea {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-top: 5vh;
 }
 
 #red {
-    background-color: rgb(243, 89, 84);
-    border-color: hsl(2, 87%, 40%);
+    background-color: #f35954;
+    border-color: #bf130d
 }
 #green {
-    background-color: rgb(94, 221, 105);
-    border-color: hsl(125, 65%, 40%);
+    background-color: #5edd69;
+    border-color: rgb(36, 168, 47)
 }
 #blue {
-    background-color: rgb(49, 120, 252);
-    border-color: hsl(219, 97%, 40%);
+    background-color: #3178fc;
+    border-color: #0348c9;
 }
 #yellow {
-    background-color: rgb(233, 245, 64);
-    border-color: hsl(64, 90%, 40%);
+    background-color: #e9f540;
+    border-color: #b6c20a;
 }
 #pink {
-    background-color: rgb(238, 117, 147);
-    border-color: hsl(345, 78%, 40%);
+    background-color: #ee7593;
+    border-color: #b6163e;
 }
 
 .box {
@@ -65,4 +50,21 @@ button {
 }
 .hidden {
     display: none;
+}
+
+#buttonArea {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+}
+
+button {
+    background-color: #92acdd;
+    border: 3px solid #3968c0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 20px;
 }
