@@ -6,30 +6,47 @@ const boxes = [
     document.querySelector("#pink")
 ];
 
-const start = () => {
-    document.querySelector("#startButton").addEventListener("click", start);
-
-    // Oculta o botão de iniciar
-    document.querySelector("#startButton").classList.remove("shown");
-    document.querySelector("#startButton").classList.add("hidden");
-
-    // Exibe as caixas
-    document.querySelector("#boxArea").classList.remove("hidden");
-    document.querySelector("#boxArea").classList.add("shown");
-
-    // Exibe o botão de sortear
-    document.querySelector("#shuffleButton").classList.remove("hidden");
-    document.querySelector("#shuffleButton").classList.add("shown");
+let items = {
+    startButton: document.querySelector("button#startButton"),
+    boxArea:document.querySelector('div#boxArea'),
+    shuffleButton: document.querySelector('button#shuffleButton'),
+    restartButton: document.querySelector('button#restartButton')
 }
 
-const shuffle = (randomIndex) => {
-    document.querySelector("#shuffleButton").addEventListener("click", shuffle);
+const start = () => {
+    // Redefine as cores das caixas
+    boxes[0].style.backgroundColor = '#f35954';
+    boxes[1].style.backgroundColor = '#5edd69';
+    boxes[2].style.backgroundColor = '#3178fc';
+    boxes[3].style.backgroundColor = '#e9f540';
+    boxes[4].style.backgroundColor = '#ee7593';
 
+    // Oculta o botão de iniciar
+    items.startButton.classList.replace("shown", 'hidden');
+
+    // Exibe as caixas
+    items.boxArea.classList.replace("hidden", 'shown');
+
+    // Exibe o botão de sortear
+    items.shuffleButton.classList.replace("hidden", 'shown');
+}
+items.startButton.addEventListener('click', start);
+
+const shuffle = (randomIndex) => {
     randomIndex = Math.floor(Math.random() * boxes.length);
     boxes[randomIndex].style.backgroundColor = `#ba72e4`;    
 
     // Oculta o botão de sortear
-    document.querySelector("#shuffleButton").classList.remove("shown");
-    document.querySelector("#shuffleButton").classList.add("hidden");
-    
+    items.shuffleButton.classList.replace("shown", 'hidden');
+
+    // Exibe o botão de reiniciar
+    items.restartButton.classList.replace('hidden', 'shown');
 }
+items.shuffleButton.addEventListener('click', shuffle);
+
+const restart = () => {
+    items.startButton.classList.replace('hidden', 'shown');
+    items.boxArea.classList.replace('shown', 'hidden');
+    items.restartButton.classList.replace('shown', 'hidden');
+}
+items.restartButton.addEventListener('click', restart);
