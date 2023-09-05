@@ -3,6 +3,7 @@ html {
 }
 
 p#winnerText {
+    color: aliceblue;
     text-align: center;
     font-size: 24pt;
     margin-top: 40vh;
