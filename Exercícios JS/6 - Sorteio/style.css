@@ -1,3 +1,9 @@
-* {
-    background-color: rgb(126, 137, 146);
+html {
+    background-color: rgb(90, 150, 200);
+}
+
+p#winnerText {
+    text-align: center;
+    font-size: 24pt;
+    margin-top: 40vh;
 }
