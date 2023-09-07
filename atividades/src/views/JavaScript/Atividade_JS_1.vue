@@ -1,6 +1,15 @@
 <script lang="ts">
-export default {
+const tempConversor = {
     name: 'Conversor',
+    data() {
+        return {
+            source: "",
+            valNum: "",
+            tempF: "",
+            tempC: "",
+            tempK: ""
+        }
+    },
     methods: {
         conversor(source: string, valNum: number) {
             let fahrenheit = (<HTMLInputElement>document.getElementById("fahrenheit")).value;
@@ -27,25 +36,40 @@ export default {
 <template>
     <div id="formArea">
             <h1>Conversor de temperaturas</h1>
-            <form name="converter" action="#" method="get">
+            <form action="#" method="get">
                 <div class="fahrenheit temp-area">
                     <label for="fahrenheit">Fahrenheit</label>
-                    <input type="number" name="fahrenheit" id="fahrenheit" placeholder="Valor em Fahrenheit" onchange="conversor(this.id, this.value)"/> 
+                    <input
+                    type="number"
+                    id="fahrenheit"
+                    placeholder="Valor em Fahrenheit"
+                    v-model="tempF"
+                    @change="conversor(this.id, this.value)"/> 
                 </div>
                 <br/>
                 <div class="celsius temp-area">
                     <label for="celsius">Celsius</label>
-                    <input type="number" name="celsius" id="celsius" placeholder="Valor em Celsius" onchange="conversor(this.id, this.value)"/>
+                    <input
+                    type="number"
+                    id="celsius"
+                    placeholder="Valor em Celsius"
+                    v-model="tempC"
+                    @change="conversor(this.id, this.value)"/>
                 </div>
                 <br/>
                 <div class="kelvin temp-area">
                     <label for="kelvin">Kelvin</label>
-                    <input type="number" name="kelvin" id="kelvin" placeholder="Valor em Kelvin" onchange="conversor(this.id, this.value)"/>
+                    <input
+                    type="number"
+                    id="kelvin"
+                    placeholder="Valor em Kelvin"
+                    v-model="tempK"
+                    @change="conversor(this.id, this.value)"/>
                 </div>
             </form>
         </div>
         <div id="buttonArea">
-            <button id="botao" onclick="conversor(source, valNum)">Converter</button>
+            <button id="botao" @click="conversor(source, valNum)">Converter</button>
         </div>
 </template>
 
