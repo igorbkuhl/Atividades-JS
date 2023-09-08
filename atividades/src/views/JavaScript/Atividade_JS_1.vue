@@ -1,13 +1,16 @@
 <script lang="ts">
-const tempConversor = {
+import Vue from 'vue'
+const tempConversor = Vue.createApp({
     name: 'Conversor',
     data() {
         return {
-            source: "",
-            valNum: "",
-            tempF: "",
-            tempC: "",
-            tempK: ""
+            source: '',
+            valNum: '',
+            items: [
+                {id: 'fahrenheit', value: Number('')},
+                {id: 'celsius', value: Number('')},
+                {id: 'kelvin', value: Number('')}
+            ]
         }
     },
     methods: {
@@ -30,11 +33,13 @@ const tempConversor = {
             }
         }
     }
-}
+})
+.mount('#temp-converter')
 </script>
 
 <template>
-    <div id="formArea">
+    <main id="temp-converter">
+        <div id="formArea">
             <h1>Conversor de temperaturas</h1>
             <form action="#" method="get">
                 <div class="fahrenheit temp-area">
@@ -43,8 +48,8 @@ const tempConversor = {
                     type="number"
                     id="fahrenheit"
                     placeholder="Valor em Fahrenheit"
-                    v-model="tempF"
-                    @change="conversor(this.id, this.value)"/> 
+                    v-model="items.value[0]"
+                    @change="conversor(items.id[0], items.value[0])"/> 
                 </div>
                 <br/>
                 <div class="celsius temp-area">
@@ -53,8 +58,8 @@ const tempConversor = {
                     type="number"
                     id="celsius"
                     placeholder="Valor em Celsius"
-                    v-model="tempC"
-                    @change="conversor(this.id, this.value)"/>
+                    v-model="items.value[1]"
+                    @change="conversor(items.id[1], items.value[1])"/>
                 </div>
                 <br/>
                 <div class="kelvin temp-area">
@@ -63,14 +68,15 @@ const tempConversor = {
                     type="number"
                     id="kelvin"
                     placeholder="Valor em Kelvin"
-                    v-model="tempK"
-                    @change="conversor(this.id, this.value)"/>
+                    v-model="items.value[2]"
+                    @change="conversor(items.id[2], items.value[2])"/>
                 </div>
             </form>
         </div>
         <div id="buttonArea">
             <button id="botao" @click="conversor(source, valNum)">Converter</button>
         </div>
+    </main>
 </template>
 
 <style lang="sass" scoped>
