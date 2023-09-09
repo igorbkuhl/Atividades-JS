@@ -1,15 +1,15 @@
 <script lang="ts">
-import Vue from 'vue'
-const tempConversor = Vue.createApp({
+import { defineComponent } from 'vue'
+export default defineComponent({
     name: 'Conversor',
     data() {
         return {
             source: '',
-            valNum: '',
+            valNum: 0,
             items: [
-                {id: 'fahrenheit', value: Number('')},
-                {id: 'celsius', value: Number('')},
-                {id: 'kelvin', value: Number('')}
+                {id: 'fahrenheit', value: 0},
+                {id: 'celsius', value: 0},
+                {id: 'kelvin', value: 0}
             ]
         }
     },
@@ -34,7 +34,6 @@ const tempConversor = Vue.createApp({
         }
     }
 })
-.mount('#temp-converter')
 </script>
 
 <template>
@@ -48,8 +47,8 @@ const tempConversor = Vue.createApp({
                     type="number"
                     id="fahrenheit"
                     placeholder="Valor em Fahrenheit"
-                    v-model="items.value[0]"
-                    @change="conversor(items.id[0], items.value[0])"/> 
+                    v-model="items[0].value"
+                    @change="conversor(items[0].id, items[0].value)"/> 
                 </div>
                 <br/>
                 <div class="celsius temp-area">
@@ -58,8 +57,8 @@ const tempConversor = Vue.createApp({
                     type="number"
                     id="celsius"
                     placeholder="Valor em Celsius"
-                    v-model="items.value[1]"
-                    @change="conversor(items.id[1], items.value[1])"/>
+                    v-model="items[1].value"
+                    @change="conversor(items[1].id, items[1].value)"/>
                 </div>
                 <br/>
                 <div class="kelvin temp-area">
@@ -68,8 +67,8 @@ const tempConversor = Vue.createApp({
                     type="number"
                     id="kelvin"
                     placeholder="Valor em Kelvin"
-                    v-model="items.value[2]"
-                    @change="conversor(items.id[2], items.value[2])"/>
+                    v-model="items[2].value"
+                    @change="conversor(items[2].id, items[2].value)"/>
                 </div>
             </form>
         </div>
