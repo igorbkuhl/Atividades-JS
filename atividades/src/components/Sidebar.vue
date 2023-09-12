@@ -11,7 +11,7 @@ const ToggleMenu = () => {
 <template>
     <aside :class="`${is_expanded && 'is-expanded'}`">
         <div class="logo">
-            <img src="public/vite.svg" alt="Vite">
+            <img src="/vite.svg" alt="Vite">
         </div>
 
         <div class="menu-toggle-wrap">
