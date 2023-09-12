@@ -2,7 +2,7 @@
 import { defineComponent } from "vue"
 
 export default defineComponent ({
-  name: "Atividade JS 1",
+  name: "Atividade_JS_1",
   data() {
     return {
 			// source: String,
@@ -10,6 +10,9 @@ export default defineComponent ({
 			tempF: 0,
 			tempC: 0,
 			tempK: 0,
+      srcF: "fahrenheit",
+      srcC: "celsius",
+      srcK: "kelvin",
     }
 		// type inputTypes = {
 		// 	id: string;
@@ -18,27 +21,52 @@ export default defineComponent ({
   },
 	methods: {
 		conversor(source: string, valNum: number) {
+      
+
 			let fahrenheit = (document.querySelector("input#fahrenheit") as HTMLInputElement).value;
 			let celsius = (document.querySelector("input#celsius") as HTMLInputElement).value;
 			let kelvin = (document.querySelector("input#kelvin") as HTMLInputElement).value;
-			this.tempF = Number(fahrenheit);
-			this.tempC = Number(celsius);
-			this.tempK = Number(kelvin);
+			this.tempF = parseFloat(fahrenheit);
+			this.tempC = parseFloat(celsius);
+			this.tempK = parseFloat(kelvin);
 
-			if (source == "fahrenheit") {
-				this.tempC = ((valNum - 32) / 1.8);
-				this.tempK = (((valNum - 32) / 1.8) + 273.15);
-			} 
-			
-			if (source == "celsius") {
-				this.tempF = ((valNum * 1.8) + 32);
-				this.tempK = ((valNum) + 273.15);
-			}
+			// if (source == "fahrenheit") {
+			// 	this.tempC = Number((valNum - 32) / 1.8);
+			// 	this.tempK = Number(((valNum - 32) / 1.8) + 273.15);
+			// } else if (source == "celsius") {
+			// 	this.tempF = Number((valNum * 1.8) + 32);
+			// 	this.tempK = Number((valNum) + 273.15);
+			// } else if (source == "kelvin") {
+			// 	this.tempF = Number(((valNum - 273.15) * 1.8) + 32);
+			// 	this.tempC = Number((valNum) - 273.15);
+			// } else {
+      //   console.log('hmm...')
+      // }
 
-			if (source = "kelvin") {
-				this.tempF = (((valNum - 273.15) * 1.8) + 32);
-				this.tempC = ((valNum) - 273.15);
-			}
+      switch(source) {
+        case "fahrenheit":
+				  this.tempC = Number((valNum - 32) / 1.8);
+				  this.tempK = Number(((valNum - 32) / 1.8) + 273.15);
+          break;
+        case "celsius":
+          this.tempF = Number((valNum * 1.8) + 32);
+          this.tempK = Number((valNum) + 273.15);
+          break;
+        case "kelvin":
+          this.tempF = Number(((valNum - 273.15) * 1.8) + 32);
+          this.tempC = Number((valNum) - 273.15);
+          break;
+        default:
+          console.log('hmm...')
+          break;
+      }
+
+      // fahrenheit = this.tempF.toFixed(2)
+      // celsius = this.tempC.toFixed(2)
+      // kelvin = this.tempK.toFixed(2)
+      
+      console.log(source, valNum)
+      console.log(fahrenheit, celsius, kelvin)
 		}
 	}
 })
@@ -56,17 +84,17 @@ export default defineComponent ({
             id="fahrenheit"
             placeholder="Valor em Fahrenheit"
             v-model="tempF"
-            @change="conversor(this.id, this.value)"/> 
+            @change="conversor(srcF, tempF)"/> 
           </div>
           <br/>
           <div class="celsius temp-area">
             <label for="celsius">Celsius</label>
-              <input
-              type="number"
-              id="celsius"
-              placeholder="Valor em Celsius"
-              v-model="tempC"
-              @change="conversor(this.id, this.value)"/>
+            <input
+            type="number"
+            id="celsius"
+            placeholder="Valor em Celsius"
+            v-model="tempC"
+            @change="conversor(srcC, tempC)"/>
           </div>
           <br/>
           <div class="kelvin temp-area">
@@ -76,12 +104,12 @@ export default defineComponent ({
               id="kelvin"
               placeholder="Valor em Kelvin"
               v-model="tempK"
-              @change="conversor(this.id, this.value)"/>
+              @change="conversor(srcK, tempK)"/>
           </div>
         </form>
     </div>
     <div id="buttonArea">
-      <button id="botao" @click="conversor(source, valNum)">Converter</button>
+      <button id="botao" @click="conversor(this.id, this.value)">Converter</button>
     </div>
   </main>
 </template>
