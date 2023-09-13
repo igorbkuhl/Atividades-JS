@@ -22,26 +22,12 @@ export default defineComponent ({
 	methods: {
 		conversor(source: string, valNum: number) {
       
-
 			let fahrenheit = (document.querySelector("input#fahrenheit") as HTMLInputElement).value;
 			let celsius = (document.querySelector("input#celsius") as HTMLInputElement).value;
 			let kelvin = (document.querySelector("input#kelvin") as HTMLInputElement).value;
 			this.tempF = parseFloat(fahrenheit);
 			this.tempC = parseFloat(celsius);
 			this.tempK = parseFloat(kelvin);
-
-			// if (source == "fahrenheit") {
-			// 	this.tempC = Number((valNum - 32) / 1.8);
-			// 	this.tempK = Number(((valNum - 32) / 1.8) + 273.15);
-			// } else if (source == "celsius") {
-			// 	this.tempF = Number((valNum * 1.8) + 32);
-			// 	this.tempK = Number((valNum) + 273.15);
-			// } else if (source == "kelvin") {
-			// 	this.tempF = Number(((valNum - 273.15) * 1.8) + 32);
-			// 	this.tempC = Number((valNum) - 273.15);
-			// } else {
-      //   console.log('hmm...')
-      // }
 
       switch(source) {
         case "fahrenheit":
@@ -57,13 +43,13 @@ export default defineComponent ({
           this.tempC = Number((valNum) - 273.15);
           break;
         default:
-          console.log('hmm...')
+          alert('Algo deu errado')
           break;
       }
 
-      // fahrenheit = this.tempF.toFixed(2)
-      // celsius = this.tempC.toFixed(2)
-      // kelvin = this.tempK.toFixed(2)
+      fahrenheit = this.tempF.toFixed(2)
+      celsius = this.tempC.toFixed(2)
+      kelvin = this.tempK.toFixed(2)
       
       console.log(source, valNum)
       console.log(fahrenheit, celsius, kelvin)
@@ -86,7 +72,6 @@ export default defineComponent ({
             v-model="tempF"
             @change="conversor(srcF, tempF)"/> 
           </div>
-          <br/>
           <div class="celsius temp-area">
             <label for="celsius">Celsius</label>
             <input
@@ -96,7 +81,6 @@ export default defineComponent ({
             v-model="tempC"
             @change="conversor(srcC, tempC)"/>
           </div>
-          <br/>
           <div class="kelvin temp-area">
               <label for="kelvin">Kelvin</label>
               <input
@@ -118,10 +102,6 @@ export default defineComponent ({
 *
   color: #f39ba3
 
-html
-  display: flex
-  flex-direction: column
-  flex-wrap: wrap
 
 body
   margin-top: 20vh
@@ -131,11 +111,12 @@ body
   padding: auto
 
 main
+  background-color: #513340
   display: flex
   justify-content: center
   flex-direction: column
-  background-color: #513340
   padding: 8vh 0px
+  height: 100vh
 
 h1
   font-family: 'Courier New', Courier, monospace
@@ -145,10 +126,9 @@ h1
   text-transform: uppercase
 
 form
-  display: grid
-  justify-content: space-around
-  margin: 0
-  width: 600px
+  margin: auto
+  width: 16pc
+  text-align: center
 
 label
   font-family: 'Courier New', Courier, monospace
