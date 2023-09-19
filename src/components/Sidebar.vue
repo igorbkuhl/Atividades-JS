@@ -5,42 +5,50 @@ import DarkButton from './DarkButton.vue'
 const is_expanded = ref(false)
 
 const ToggleMenu = () => {
-    is_expanded.value = !is_expanded.value
+	is_expanded.value = !is_expanded.value
 }
 </script>
 
 <template>
-    <aside :class="`${is_expanded && 'is-expanded'}`">
-        <div class="logo">
-            <img src="/vite.svg" alt="Vite">
-        </div>
+	<aside :class="`${is_expanded && 'is-expanded'}`">
+		<div class="logo">
+			<img src="/vite.svg" alt="Vite">
+		</div>
 
-        <div class="menu-toggle-wrap">
-            <button class="menu-toggle" @click="ToggleMenu">
-                <span class="material-icons">keyboard_double_arrow_right</span>
-            </button>
-        </div>
+		<div class="menu-toggle-wrap">
+			<button class="menu-toggle" @click="ToggleMenu">
+				<span class="icon">
+					<i class="fa-solid fa-angles-right"></i>
+				</span>
+			</button>
+		</div>
 
-        <h3>Menu</h3>
-        <div class="menu">
-            <router-link class="button" to="/">
-                <span class="material-icons">home</span>
-                <span class="text">Home</span>
-            </router-link>
-            <hr>
-            <router-link class="button" to="/Atividade_JS_1">
-                <span class="material-icons">home</span>
-                <span class="text">Home</span>
-            </router-link>
-            <router-link class="button" to="/Atividade_JS_2">
-                <span class="material-icons">home</span>
-                <span class="text">Home</span>
-            </router-link>
-        </div>
-        <div class="dark-mode-area">
-            <DarkButton />
-        </div>
-    </aside>
+		<h3>Menu</h3>
+		<div class="menu">
+			<router-link class="button" to="/">
+				<span class="icon">
+					<i class="fa-solid fa-house"></i>
+				</span>
+				<span class="text">Home</span>
+			</router-link>
+			<hr>
+			<router-link class="button" to="/Atividade_JS_1">
+				<span class="icon">
+					<i class="fa-solid fa-house"></i>
+				</span>
+				<span class="text">Home</span>
+			</router-link>
+			<router-link class="button" to="/Atividade_JS_2">
+				<span class="icon">
+					<i class="fa-solid fa-house"></i>
+				</span>
+				<span class="text">Home</span>
+			</router-link>
+		</div>
+		<div class="dark-mode-area">
+			<DarkButton />
+		</div>
+	</aside>
 </template>
 
 <style lang="sass" scoped>
