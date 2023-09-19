@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent } from "vue";
 
 export default defineComponent ({
   name: "Atividade_JS_1",
@@ -58,35 +58,35 @@ export default defineComponent ({
       console.log(this.srcT, this.tempT);
 		},
     increaseFahrenheit(): void {
-      this.tempF++
-      this.tempT = this.tempF
-      this.srcT = this.srcF
+      this.tempF++;
+      this.tempT = this.tempF;
+      this.srcT = this.srcF;
     },
     decreaseFahrenheit(): void {
-      this.tempF--
-      this.tempT = this.tempF
-      this.srcT = this.srcF
+      this.tempF--;
+      this.tempT = this.tempF;
+      this.srcT = this.srcF;
     },
     increaseCelsius(): void {
-      this.tempC++
-      this.tempT = this.tempC
-      this.srcT = this.srcC
+      this.tempC++;
+      this.tempT = this.tempC;
+      this.srcT = this.srcC;
     },
     decreaseCelsius(): void {
-      this.tempC--
-      this.tempT = this.tempC
-      this.srcT = this.srcC
+      this.tempC--;
+      this.tempT = this.tempC;
+      this.srcT = this.srcC;
     },
     increaseKelvin(): void {
-      this.tempK++
-      this.tempT = this.tempK
-      this.srcT = this.srcK
+      this.tempK++;
+      this.tempT = this.tempK;
+      this.srcT = this.srcK;
     },
     decreaseKelvin(): void {
-      this.tempK--
-      this.tempT = this.tempK
-      this.srcT = this.srcK
-    }
+      this.tempK--;
+      this.tempT = this.tempK;
+      this.srcT = this.srcK;
+    },
 	}
 })
 </script>
