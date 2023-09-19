@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import DarkButton from './DarkButton.vue'
 
 const is_expanded = ref(false)
 
@@ -35,6 +36,9 @@ const ToggleMenu = () => {
                 <span class="material-icons">home</span>
                 <span class="text">Home</span>
             </router-link>
+        </div>
+        <div class="dark-mode-area">
+            <DarkButton />
         </div>
     </aside>
 </template>
