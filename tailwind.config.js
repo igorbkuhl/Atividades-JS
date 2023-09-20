@@ -4,6 +4,11 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      'chakra': ['Chakra Petch', 'sans-serif'],
+      'lato': ['Lato', 'sans-serif'],
+      'spline': ['Spline Sans Mono', 'monospace']
+    }
   },
   plugins: [],
 };
