@@ -18,10 +18,22 @@ const toggleDark = useToggle(isDark)
 <template>
 	<button
 		@click="toggleDark()"
-		class="px-4 ty-2 text-white bg-slate-700 rounded dark:bg-stone-500"
+		class="px-3 py-1 ty-2 text-white"
 	>
 	<span class="icon">
 		<i id="toggleButton" class="fa-solid fa-sun"></i>
 	</span>
 	</button>
 </template>
+
+<style lang="scss" scoped>
+button {
+	transform: translateX(0.55rem);
+	.fa-sun {
+		font-size: 1.15rem;
+	}
+	.fa-moon {
+		font-size: 1.5rem;
+	}
+}
+</style>
