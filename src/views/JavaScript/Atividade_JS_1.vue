@@ -137,54 +137,66 @@ export default defineComponent ({
           <input type="button" value="–" id="decreaseK" class="decrease-button" @click="decreaseKelvin()" />
         </div>
       </div>
-    <div id="buttonArea">
-      <button id="botao" @click="conversor(srcT, tempT)">Converter</button>
-    </div>
+      <div id="buttonArea">
+        <button id="botao" @click="conversor(srcT, tempT)">Converter</button>
+      </div>
     </div>
   </main>
 </template>
 
-<style lang="sass" scoped>
-.temp-area
-  margin: 2vh auto auto auto
-  width: 80%
+<style lang="scss" scoped>
+// font used for + – buttons
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+.temp-area {
+  margin: 2vh auto auto auto;
+  width: 80%;
+}
 
-.temp-inputs
-  display: flex
-  flex-direction: row
-  justify-content: center
+.temp-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
-.increase-button
-  border-radius: 0px
-  border-right-style: none
-  font-weight: bold
+.increase-button {
+  border-radius: 0px;
+  border-right-style: none;
+  font-weight: bold;
+}
 
-.decrease-button
-  border-radius: 0 4px 4px 0
-  font-weight: bold
+.decrease-button {
+  border-radius: 0 4px 4px 0;
+  font-weight: bold;
+}
 
-.increase-button, .decrease-button
-  width: 14%
+.increase-button, .decrease-button {
+  @apply text-xl bg-rose-100 dark:bg-rose-900;
+  font-family: 'Chakra Petch', sans-serif;
+  width: 14%;
+}
 
-#buttonArea
-  display: flex
-  justify-content: center
-  margin: 2pc auto auto auto
+#buttonArea {
+  display: flex;
+  justify-content: center;
+  margin: 2pc auto auto auto; 
+}
 
-#botao
-  background-color: #f3f2f2
-  border: 1px solid #ddc9cf 
-  border-radius: 10px
-  font-size: 16pt
-  font-weight: bold
-  padding: 10px
-  cursor: pointer
-  display: inherit
-  justify-content: inherit
-  margin-top: 4vh
-  @apply bg-rose-50 dark:bg-stone-500
+#botao {
+  @apply bg-rose-100 dark:bg-rose-900;
+  border: 1px solid #ddc9cf;
+  border-radius: 10px;
+  font-size: 16pt;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  display: inherit;
+  justify-content: inherit;
+  margin-top: 4vh;
+}
 
-#fahrenheit, #celsius, #kelvin
-  border-radius: 4px 0 0 4px
+#fahrenheit, #celsius, #kelvin {
+  border-radius: 4px 0 0 4px;
+  height: 40px;
+}
 
 </style>
