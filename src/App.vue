@@ -11,9 +11,9 @@ import Sidebar from './components/Sidebar.vue'
 
 <style lang="sass">
 :root
-  --primary: #4ade80
+  --primary: #ff9ca8
   --grey: #64748b
-  --dark: #1e293b
+  --dark: #1f1321
   --dark-alt: #334155
   --light: #f1f5f9
   --background: #242424
