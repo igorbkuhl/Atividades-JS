@@ -6,22 +6,22 @@
 				<h2>JavaScript</h2>
 				<router-link class="link" to="/Atividade_JS_1">Conversor de Temperaturas</router-link>
 				<router-link class="link" to="/Atividade_JS_2">Contagem de Votos</router-link>
-				<router-link class="link" to="/Atividade_JS_3">Detector de Anos bissextos (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_4">Calculadora Prompt (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_5">Caixas Premiadas (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_6">Sorteio (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_7">Cifra de César (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_8">Boletim (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_9">Idades (em breve)</router-link>
-				<router-link class="link" to="/Atividade_JS_10">Bloco Dinâmico (em breve)</router-link>
+				<router-link class="link" to="/Atividade_JS_3">Detector de Anos bissextos</router-link>
+				<router-link class="link" to="/Atividade_JS_4">Calculadora Prompt</router-link>
+				<router-link class="link" to="/Atividade_JS_5">Caixas Premiadas</router-link>
+				<router-link class="link" to="/Atividade_JS_6">Sorteio</router-link>
+				<router-link class="link" to="/Atividade_JS_7">Cifra de César</router-link>
+				<router-link class="link" to="/Atividade_JS_8">Boletim</router-link>
+				<router-link class="link" to="/Atividade_JS_9">Idades</router-link>
+				<router-link class="link" to="/Atividade_JS_10">Bloco Dinâmico</router-link>
 			</div>
 			<div class="node-links">
 				<h2>NodeJS</h2>
-				<router-link class="link" to="/Atividade_Node_1">Tabuada (em breve)</router-link>
-				<router-link class="link" to="/Atividade_Node_2">Perímetro de Circunferência (em breve)</router-link>
-				<router-link class="link" to="/Atividade_Node_3">Área de Circunferência (em breve)</router-link>
-				<router-link class="link" to="/Atividade_Node_4">Fatorial (em breve)</router-link>
-				<router-link class="link" to="/Atividade_Node_5">RegEx (em breve)</router-link>
+				<router-link class="link" to="/Atividade_Node_1">Tabuada</router-link>
+				<router-link class="link" to="/Atividade_Node_2">Perímetro de Circunferência</router-link>
+				<router-link class="link" to="/Atividade_Node_3">Área de Circunferência</router-link>
+				<router-link class="link" to="/Atividade_Node_4">Fatorial</router-link>
+				<router-link class="link" to="/Atividade_Node_5">RegEx</router-link>
 			</div>
 		</div>
 	</main>
