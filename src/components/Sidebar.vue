@@ -1,59 +1,54 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import DarkButton from './DarkButton.vue'
+import JSDropdownMenu from './JSDropdownMenu.vue';
+import NodeDropdownMenu from './NodeDropdownMenu.vue'
 
 const is_expanded = ref(false)
 
 const ToggleMenu = () => {
-	is_expanded.value = !is_expanded.value
+  is_expanded.value = !is_expanded.value
 }
 </script>
 
 <template>
-	<aside :class="`${is_expanded && 'is-expanded'}`">
-		<div class="logo">
-			<img src="/vite.svg" alt="Vite">
-		</div>
+  <aside :class="`${is_expanded && 'is-expanded'}`">
+    <div class="logo">
+      <img src="/vite.svg" alt="Vite">
+    </div>
 
-		<div class="menu-toggle-wrap">
-			<button class="menu-toggle" @click="ToggleMenu">
-				<span class="icon">
-					<i class="fa-solid fa-angles-right"></i>
-				</span>
-			</button>
-		</div>
+    <div class="menu-toggle-wrap">
+      <button class="menu-toggle" @click="ToggleMenu">
+        <span class="icon">
+          <i class="fa-solid fa-angles-right"></i>
+        </span>
+      </button>
+    </div>
 
-		<h3>Menu</h3>
-		<div class="menu">
-      <div class="home-link activity-link">
-			  <router-link class="button" to="/">
-			  	<span class="icon">
-			  		<i class="fa-solid fa-house"></i>
-			  	</span>
-			  	<span class="text">Home</span>
-			  </router-link>
+    <h3>Menu</h3>
+    <div class="menu">
+      <div class="home-link">
+        <router-link class="button" to="/">
+          <span class="icon">
+            <i class="fa-solid fa-house"></i>
+          </span>
+          <span class="text">Home</span>
+        </router-link>
       </div>
-      <div class="temp-link activity-link">
-		  	<router-link class="button" to="/Atividade_JS_1">
-		  		<span class="icon">
-		  			<i class="fa-solid fa-temperature-three-quarters"></i>
-		  		</span>
-		  		<span class="text temp-text">Conversor</span>
-		  	</router-link>
+      <div class="activity-link">
+        <div>
+          <JSDropdownMenu class="dropdown-menu"></JSDropdownMenu>
+        </div>
       </div>
-      <div class="vote-link activity-link">
-		  	<router-link class="button" to="/Atividade_JS_2">
-		  		<span class="icon">
-		  			<i class="fa-solid fa-users"></i>
-		  		</span>
-		  		<span class="text">Contagem de votos</span>
-		  	</router-link>
+      <div class="activity-link">
+        <NodeDropdownMenu class="dropdown-menu"></NodeDropdownMenu>
       </div>
-		</div>
-		<div class="dark-mode-area">
-			<DarkButton />
-		</div>
-	</aside>
+    </div>
+    <div class="flex"></div>
+    <div class="dark-mode-area">
+      <DarkButton />
+    </div>
+  </aside>
 </template>
 
 <style lang="scss" scoped>
@@ -61,14 +56,18 @@ aside {
   display: flex;
   flex-direction: column;
   width: calc(2rem + 32px);
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
+  overflow: hidden scroll;
   padding: 1rem;
 
   background-color: var(--dark);
   color: var(--light);
 
   transition: 0.2s ease-out;
+
+  .flex {
+    flex: 1 1 0;
+  }
 
   .logo {
     margin-bottom: 1rem;
@@ -77,7 +76,7 @@ aside {
       width: 2rem;
     }
   }
-  
+
   .menu-toggle-wrap {
     display: flex;
     margin-bottom: 1rem;
@@ -89,18 +88,18 @@ aside {
     .menu-toggle {
       transform: 0.2s ease-out;
     }
-      
-      .icon .fa-angles-right {
-          font-size: 1rem;
-          color: var(--light);
-          transition: 0.2s ease-out;
-          transform: translateX(0.3rem);
-      }
-      
-      &:hover .icon .fa-angles-right {
-        color: var(--primary);
-        transform: translateX(0.4rem);
-      }
+
+    .icon .fa-angles-right {
+      font-size: 1rem;
+      color: var(--light);
+      transition: 0.2s ease-out;
+      transform: translateX(0.3rem);
+    }
+
+    &:hover .icon .fa-angles-right {
+      color: var(--primary);
+      transform: translateX(0.4rem);
+    }
   }
 
   h3, .button .text {
@@ -120,9 +119,10 @@ aside {
     .home-link {
       margin-bottom: 1rem;
     }
+
     .activity-link {
-      
-      height: 3.2rem;
+      opacity: 0;
+      transition: 0.2s ease-out;
     }
 
     .button {
@@ -141,12 +141,6 @@ aside {
         width: 30px;
         transition: 0.2s ease-out;
       }
-      .fa-temperature-three-quarters {
-        transform: translateX(0.4rem);
-      }
-      .fa-users {
-        transform: translateX(-0.08rem);
-      }
 
       .text {
         color: var(--light);
@@ -159,21 +153,14 @@ aside {
           color: var(--primary);
         }
       }
-      
-      &.router-link-exact-active {
-        border-right: 5px solid var(--primary);
-      }
     }
   }
 
   &.is-expanded {
     width: var(--sidebar-width);
 
-    .menu-toggle-wrap {
-
-      .menu-toggle {
-        transform: rotate(-180deg) translateX(-0.3rem);
-      }
+    .menu-toggle-wrap .menu-toggle {
+      transform: rotate(-180deg) translateX(-0.3rem);
     }
 
     h3, .button .text {
@@ -183,8 +170,15 @@ aside {
     .button .fa-solid {
       margin-right: 1rem;
     }
+
     .button {
       padding: 0.4rem 1rem;
+    }
+
+    .activity-link {
+      opacity: 1;
+      transition: 0.2s ease-out;
+      position: relative;
     }
   }
 
@@ -196,7 +190,7 @@ aside {
   .dark-mode-area {
     display: flex;
     justify-content: flex-start;
-    margin: 9rem -1rem 0 -1rem;
+    margin: 0 -1rem;
   }
 }
 </style>
