@@ -102,7 +102,8 @@ aside {
     }
   }
 
-  h3, .button .text {
+  h3,
+  .button .text {
     opacity: 0;
     transition: 0.3s ease-out;
   }
@@ -123,6 +124,7 @@ aside {
     .activity-link {
       opacity: 0;
       transition: 0.2s ease-out;
+      pointer-events: none;
     }
 
     .button {
@@ -146,10 +148,12 @@ aside {
         color: var(--light);
       }
 
-      &:hover, &.router-link-exact-active {
+      &:hover,
+      &.router-link-exact-active {
         background-color: var(--dark-alt);
 
-        .fa-solid, .text {
+        .fa-solid,
+        .text {
           color: var(--primary);
         }
       }
@@ -163,7 +167,8 @@ aside {
       transform: rotate(-180deg) translateX(-0.3rem);
     }
 
-    h3, .button .text {
+    h3,
+    .button .text {
       opacity: 1;
     }
 
@@ -179,6 +184,7 @@ aside {
       opacity: 1;
       transition: 0.2s ease-out;
       position: relative;
+      pointer-events: initial;
     }
   }
 
@@ -192,5 +198,4 @@ aside {
     justify-content: flex-start;
     margin: 0 -1rem;
   }
-}
-</style>
+}</style>
