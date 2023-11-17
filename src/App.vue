@@ -27,6 +27,8 @@ import Sidebar from './components/Sidebar.vue'
 
 body
   background: var(--background)
+  height: 100vh
+  width: 100vw
 
 button
   cursor: pointer
