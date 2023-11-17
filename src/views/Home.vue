@@ -28,52 +28,58 @@
 </template>
 
 <style lang="scss">
-h1 {
-	text-align: left;
+main {
+	height: 100vh;
+
+	h1 {
+		text-align: left;
+	}
+
+	.links {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 100%;
+
+		.js-links {
+			display: flex;
+			flex-direction: column; margin: 1rem;
+
+			.link {
+				padding: 0.5em;
+			}
+			.link:hover {
+				@apply bg-[#f7bcc985] dark:bg-[#7a6570] rounded-md
+			}
+
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 20pt;
+				text-decoration: underline;
+			}
+		}
+
+		.node-links {
+			display: flex;
+			flex-direction: column;
+			margin: 1rem;
+
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 20pt;
+				text-decoration: underline;
+			}
+
+			.link {
+				padding: 0.5em;
+			}
+			.link:hover {
+				// background-color: rgb(122, 101, 112);
+				// border-radius: 8px;
+				@apply bg-[#f7bcc985] dark:bg-[#7a6570] rounded-md
+			}
+		}
 }
-
-.links {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-
-	.js-links {
-		display: flex;
-		flex-direction: column; margin: 1rem;
-
-		.link {
-			padding: 0.5em;
-		}
-		.link:hover {
-			@apply bg-[#f7bcc985] dark:bg-[#7a6570] rounded-md
-		}
-
-		h2 {
-			margin-bottom: 1rem;
-			font-size: 20pt;
-			text-decoration: underline;
-		}
-	}
-
-	.node-links {
-		display: flex;
-		flex-direction: column;
-		margin: 1rem;
-
-		h2 {
-			margin-bottom: 1rem;
-			font-size: 20pt;
-			text-decoration: underline;
-		}
-
-		.link {
-			padding: 0.5em;
-		}
-		.link:hover {
-			// background-color: rgb(122, 101, 112);
-			// border-radius: 8px;
-			@apply bg-[#f7bcc985] dark:bg-[#7a6570] rounded-md
-		}
-	}
 }
 </style>
