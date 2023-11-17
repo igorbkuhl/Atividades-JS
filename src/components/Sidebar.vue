@@ -57,7 +57,7 @@ aside {
   flex-direction: column;
   width: calc(2rem + 32px);
   height: 100vh;
-  overflow: hidden scroll;
+  overflow: hidden;
   padding: 1rem;
 
   background-color: var(--dark);
