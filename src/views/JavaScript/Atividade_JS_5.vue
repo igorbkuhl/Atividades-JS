@@ -5,52 +5,69 @@ export default defineComponent({
   data() {
     return {
       boxes: [
-        { redId: "1" },
-        { greenId: "2" },
-        { blueId: "3" },
-        { yellowId: "4" },
-        { pinkId: "5" },
+        { status: false },
+        { status: false },
+        { status: false },
+        { status: false },
+        { status: false },
       ],
-      chosenBox: "",
+      isShuffled: false,
     };
   },
   methods: {
-    randomIndex(index: string) {
-      index[Math.floor(Math.random() * this.boxes.length)];
+    shuffle() {
+      const index: number = Math.floor(Math.random() * this.boxes.length);
       const randomElement = this.boxes[index];
-      this.chosenBox = randomElement;
+      this.boxes[index].status = !this.boxes[index].status;
+      this.isShuffled = true;
       return randomElement;
     },
-    shuffle() {
-      this.randomIndex(boxes)
+    restart() {
+      this.isShuffled = false;
     }
   },
 });
-
-// const randomIndex = (index:any) => index[Math.floor(Math.random() * boxes.length)]
-
-// const shuffle = () => randomIndex(boxes).style.borderColor = "#ffffff solid 5px";
 </script>
 
 <template>
   <main>
     <div class="main-area">
       <div id="boxArea">
-        <div :key="boxes[0].redId" class="box bg-red-500"></div>
-        <div :key="boxes[1].greenId" class="box bg-green-400"></div>
-        <div :key="boxes[2].blueId" class="box bg-blue-500"></div>
-        <div :key="boxes[3].yellowId" class="box bg-yellow-400"></div>
-        <div :key="boxes[4].pinkId" class="box bg-pink-500"></div>
+        <div
+          class="box bg-red-500"
+          :class="{ winner: boxes[0].status }"
+        ></div>
+        <div
+          class="box bg-green-400"
+          :class="{ winner: boxes[1].status }"
+        ></div>
+        <div
+          class="box bg-blue-500"
+          :class="{ winner: boxes[2].status }"></div>
+        <div
+          class="box bg-yellow-400"
+          :class="{ winner: boxes[3].status }"
+        ></div>
+        <div
+          class="box bg-pink-500"
+          :class="{ winner: boxes[4].status }"
+        ></div>
       </div>
       <div id="buttonArea">
         <button
           id="shuffleButton"
           class="bg-rose-200 dark:bg-rose-900"
-          @click="randomIndex"
+          @click="shuffle"
         >
           Sortear
         </button>
-        <button id="restartButton" class="hidden">Sortear novamente</button>
+        <button
+          id="restartButton"
+          class="hidden"
+          @click="restart"
+        >
+          Sortear novamente
+        </button>
       </div>
     </div>
   </main>
@@ -70,33 +87,28 @@ export default defineComponent({
     .box {
       border: 3px solid;
       border-radius: 10px;
-      // cursor: pointer;
       margin: 15px;
       height: 100px;
       width: 200px;
     }
-  }
 
-  .is-active {
-    opacity: 1;
-  }
+    .winner {
+      background-color: #f8f8ff;
+    }
 
-  .false {
-    opacity: 0;
-  }
+    #buttonArea {
+      align-content: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-top: 5vh;
 
-  #buttonArea {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-top: 5vh;
-
-    button {
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 24px;
-      padding: 20px;
+      button {
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 20px;
+      }
     }
   }
 }
