@@ -57,13 +57,15 @@ export default defineComponent({
         <button
           id="shuffleButton"
           class="bg-rose-200 dark:bg-rose-900"
+          :class="{ hidden: isShuffled }"
           @click="shuffle"
         >
           Sortear
         </button>
         <button
           id="restartButton"
-          class="hidden"
+          class="bg-rose-200 dark:bg-rose-900"
+          :class="{ hidden: !isShuffled }"
           @click="restart"
         >
           Sortear novamente
@@ -91,24 +93,23 @@ export default defineComponent({
       height: 100px;
       width: 200px;
     }
+  }
+  .winner {
+    background-color: #f8f8ff;
+  }
 
-    .winner {
-      background-color: #f8f8ff;
-    }
+  #buttonArea {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5vh;
 
-    #buttonArea {
-      align-content: center;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      margin-top: 5vh;
-
-      button {
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 24px;
-        padding: 20px;
-      }
+    button {
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      padding: 20px;
     }
   }
 }
