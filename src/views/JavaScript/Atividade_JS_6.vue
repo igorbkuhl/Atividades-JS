@@ -1,37 +1,37 @@
 <script lang="ts">
-  import { defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
-  export default defineComponent({
-    data() {
-      return {
-        winnerText: "",
-        counter: 0,
-        shuffles: 0,
-      };
-    },
-    methods: {
-      shuffle() {
-        let participants = [];
-        this.counter = 0;
-        while (true) {
-          const userInput = prompt(`Insira o nome do ${this.counter + 1}º participante.`);
-          participants.push({ name: userInput })
+export default defineComponent({
+  data() {
+    return {
+      winnerText: "",
+      counter: 0,
+      shuffles: 0,
+    };
+  },
+  methods: {
+    shuffle() {
+      let participants = [];
+      this.counter = 0;
+      while (true) {
+        const userInput = prompt(`Insira o nome do ${this.counter + 1}º participante.`);
+        participants.push({ name: userInput })
 
-          if(!confirm("Deseja adicionar mais um participante?")) {
-            break;
-          }
-          this.counter++;
-          this.shuffles++;
+        if(!confirm("Deseja adicionar mais um participante?")) {
+          break;
         }
-        if (participants.length >= 2) {
-          const randomIndex = Math.floor(Math.random() * (participants.length));
-          this.winnerText = `${participants[randomIndex].name}`;
-        } else {
-          alert("Informe no mínimo dois participantes.");
-        }
-      },
+        this.counter++;
+        this.shuffles++;
+      }
+      if (participants.length >= 2) {
+        const randomIndex = Math.floor(Math.random() * (participants.length));
+        this.winnerText = `${participants[randomIndex].name}`;
+      } else {
+        alert("Informe no mínimo dois participantes.");
+      }
     },
-  });
+  },
+});
 </script>
 <template>
   <main>
