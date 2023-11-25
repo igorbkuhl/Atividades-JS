@@ -18,21 +18,22 @@ export default defineComponent({
         let sum = asciiNum + this.modifier;
 
         if (sum >= 65 && sum <= 90) {
-          this.encryptedTxt += String.fromCharCode(sum);
+          this.encryptedTxt[i] += String.fromCharCode(sum);
         } else if (sum > 90) {
           this.encryptedTxt += String.fromCharCode(
-            ((this.originalTxt.toUpperCase().charCodeAt() - 65 + this.modifier + 26) % 26) + 65
+            ((this.originalTxt[i].toUpperCase().charCodeAt() - 65 + this.modifier + 26) % 26) + 65
           );
         } else {
           this.encryptedTxt += this.originalTxt[i];
-          };
         };
-      },
-      copy() {
-        navigator.clipboard.writeText(this.encryptedTxt)
-        alert(`Texto copiado: ${this.encryptedTxt}`);
-      },
+        console.log([this.encryptedTxt[i], asciiNum]);
+      };
     },
+    copy() {
+      navigator.clipboard.writeText(this.encryptedTxt)
+      alert(`Texto copiado: ${this.encryptedTxt}`);
+    },
+  },
 });
 </script>
 
