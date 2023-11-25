@@ -12,7 +12,6 @@ export default defineComponent({
   methods: {
     encrypt() {
       this.encryptedTxt = "";
-      let result = ((this.originalTxt.toUpperCase().charCodeAt() - 65 + this.modifier + 26) % 26) + 65;
       for(let i = 0; i < this.originalTxt.length; i++) {
 
         let asciiNum = this.originalTxt[i].toUpperCase().charCodeAt();
@@ -21,15 +20,19 @@ export default defineComponent({
         if (sum >= 65 && sum <= 90) {
           this.encryptedTxt += String.fromCharCode(sum);
         } else if (sum > 90) {
-          this.encryptedTxt += String.fromCharCode(result);
+          this.encryptedTxt += String.fromCharCode(
+            ((this.originalTxt.toUpperCase().charCodeAt() - 65 + this.modifier + 26) % 26) + 65
+          );
         } else {
-        this.encryptedTxt += this.originalTxt[i];
+          this.encryptedTxt += this.originalTxt[i];
+          };
         };
-        console.log(this.originalTxt.charCodeAt());
-        // console.log(result);
-      };
+      },
+      copy() {
+        navigator.clipboard.writeText(this.encryptedTxt)
+        alert(`Texto copiado: ${this.encryptedTxt}`);
+      },
     },
-  }
 });
 </script>
 
@@ -71,12 +74,12 @@ export default defineComponent({
         >
           Encriptar
         </button>
-        <!-- <button
+        <button
           class="bg-rose-200 dark:bg-rose-900"
           @click="copy"
         >
           Copiar
-        </button> -->
+        </button>
       </div>
     </div>
   </main>
