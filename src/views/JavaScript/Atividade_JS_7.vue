@@ -12,17 +12,24 @@ export default defineComponent({
   methods: {
     encrypt() {
       this.encryptedTxt = "";
+      let result = ((this.originalTxt.toUpperCase().charCodeAt() - 65 + this.modifier + 26) % 26) + 65;
       for(let i = 0; i < this.originalTxt.length; i++) {
+
         let asciiNum = this.originalTxt[i].toUpperCase().charCodeAt();
         let sum = asciiNum + this.modifier;
-        
-        sum >= 65 && sum <= 90 ? this.encryptedTxt += String.fromCharCode(sum) :
-        sum > 90 ? this.encryptedTxt += String.fromCharCode(65 + (sum - 91)) :
-        this.encryptedTxt += this.originalTxt[i]
-        console.log(this.encryptedTxt.charCodeAt());
-      }
-    }
-  },
+
+        if (sum >= 65 && sum <= 90) {
+          this.encryptedTxt += String.fromCharCode(sum);
+        } else if (sum > 90) {
+          this.encryptedTxt += String.fromCharCode(result);
+        } else {
+        this.encryptedTxt += this.originalTxt[i];
+        };
+        console.log(this.originalTxt.charCodeAt());
+        // console.log(result);
+      };
+    },
+  }
 });
 </script>
 
@@ -31,17 +38,27 @@ export default defineComponent({
     <div class="main-area">
       <h1>Cifra de Cesar</h1>
       <div class="form">
-        <input 
-          type="text" 
-          style="text-transform: uppercase"
-          v-model="originalTxt"
-        />
-        <input
-          type="number"
-          v-model="modifier"
-        />
+        <label for="originalTxt">Texto inicial</label>
         <input
           type="text"
+          name="originalTxt"
+          class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]"
+          style="text-transform: uppercase"
+          v-model="originalTxt"
+          @keyup.enter="encrypt"
+        />
+        <label for="modifier">Modificador</label>
+        <input
+          type="number"
+          name="modifier"
+          v-model="modifier"
+          @keyup.enter="encrypt"
+        />
+        <label for="encryptedTxt">Resultado</label>
+        <input
+          type="text"
+          name="encryptedTxt"
+          class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]/75"
           disabled
           v-model="encryptedTxt"
         />
@@ -54,7 +71,12 @@ export default defineComponent({
         >
           Encriptar
         </button>
-        <!-- <button class="bg-rose-200 dark:bg-rose-900" @click="copy">Copiar</button> -->
+        <!-- <button
+          class="bg-rose-200 dark:bg-rose-900"
+          @click="copy"
+        >
+          Copiar
+        </button> -->
       </div>
     </div>
   </main>
@@ -81,6 +103,10 @@ export default defineComponent({
       margin: 0.4em auto;
       height: 2.5em;
     }
+    label {
+      position: relative;
+      transform: translateX(2.5em);
+    }
   }
 
   .buttons {
@@ -89,9 +115,9 @@ export default defineComponent({
     justify-content: center;
 
     button {
-      padding: 15px;
+      padding: 1em;
       border-radius: 10px;
-      margin: 15px;
+      margin: 1em;
     }
   }
 }
