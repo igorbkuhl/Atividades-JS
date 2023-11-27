@@ -105,10 +105,16 @@ export default defineComponent({
         </div>
       </div>
       <div class="buttons">
-        <button class="bg-rose-200 dark:bg-rose-900" @click="encrypt" @keyup.enter="encrypt">
+        <button
+          class="bg-rose-200 dark:bg-rose-900"
+          @click="encrypt"
+          @keyup.enter="encrypt"
+        >
           Encriptar
         </button>
-        <button class="bg-rose-200 dark:bg-rose-900" @click="copy">
+        <button class="bg-rose-200 dark:bg-rose-900"
+          @click="copy"
+        >
           Copiar
         </button>
       </div>
