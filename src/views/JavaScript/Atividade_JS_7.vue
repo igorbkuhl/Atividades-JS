@@ -7,11 +7,7 @@ export default defineComponent({
       originalTxt: "",
       encryptedTxt: "",
       modifier: 1,
-      regex: [
-        /[A-Z]/g,
-        /[a-z]/g,
-        /([^A-Z]|[^a-z])/gi
-      ],
+      changeNum: false,
     };
   },
   methods: {
@@ -44,7 +40,20 @@ export default defineComponent({
             );
           }
         } else if (/([^A-Z]|[^a-z])/gi) {
-          this.encryptedTxt += this.originalTxt[i];
+          if (/[0-9]/g && this.changeNum === true) {
+            let sum = this.originalTxt[i].charCodeAt() + this.modifier;
+
+            if (sum >= 48 && sum <= 57) {
+              this.encryptedTxt += String.fromCharCode(sum);
+            } else if (sum > 57) {
+              this.encryptedTxt += String.fromCharCode(
+                ((this.originalTxt[i].charCodeAt() -
+                  48 + this.modifier + 10) % 10) + 48
+              )
+            }
+          } else {
+            this.encryptedTxt += this.originalTxt[i];
+          } 
         }
       }
     },
@@ -61,14 +70,39 @@ export default defineComponent({
     <div class="main-area">
       <h1>Cifra de Cesar</h1>
       <div class="form">
-        <label for="originalTxt">Texto inicial</label>
-        <input type="text" id="originalTxt" class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]" v-model="originalTxt"
-          @keyup.enter="encrypt" />
-        <label for="modifier">Modificador</label>
-        <input type="number" id="modifier" v-model="modifier" @keyup.enter="encrypt" />
-        <label for="encryptedTxt">Resultado</label>
-        <input type="text" id="encryptedTxt" class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]/75" disabled
-          v-model="encryptedTxt" />
+        <label for="originalValue">Texto inicial</label>
+        <input
+          type="text"
+          id="originalValue"
+          class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]"
+          v-model="originalTxt"
+          @keyup.enter="encrypt"
+        />
+        <label for="modifierValue">Modificador</label>
+        <input
+          type="number"
+          id="modifierValue"
+          class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]"
+          v-model="modifier"
+          @keyup.enter="encrypt"
+        />
+        <label for="encryptedValue">Resultado</label>
+        <input
+          type="text"
+          id="encryptedValue"
+          class="bg-rose-50 bg-rose-50 dark:bg-[#810b4c]/75"
+          disabled
+          v-model="encryptedTxt"
+        />
+        <div class="option">
+          <input
+            type="checkbox"
+            id="numCheckbox"
+            value="Alterar números"
+            v-model="changeNum"
+          />
+          <label for="numCheckbox">Alterar números</label>
+        </div>
       </div>
       <div class="buttons">
         <button class="bg-rose-200 dark:bg-rose-900" @click="encrypt" @keyup.enter="encrypt">
@@ -96,17 +130,37 @@ export default defineComponent({
     display: inherit;
     flex-direction: column;
     justify-content: center;
+    height: 18em;
 
-    input {
+    label {
+      position: relative;
+      transform: translateX(2.5em);
+
+    }
+    input[type=text],
+    input[type=number] {
       font-size: 16pt;
       text-align: center;
       margin: 0.4em auto;
       height: 2.5em;
     }
 
-    label {
-      position: relative;
-      transform: translateX(2.5em);
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin: 0;
+
+      input {
+        width: 5em;
+
+        &:checked {
+          accent-color: #ffc0c7;
+        }
+      }
+      label {
+        transform: translateX(-2em);
+      }
     }
   }
 
