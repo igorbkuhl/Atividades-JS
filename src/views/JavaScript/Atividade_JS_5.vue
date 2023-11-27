@@ -23,6 +23,9 @@ export default defineComponent({
       return randomElement;
     },
     restart() {
+      for (let i = 0; i < this.boxes.length; i++) {
+        this.boxes[i].status = false;
+      }
       this.isShuffled = false;
     }
   },
